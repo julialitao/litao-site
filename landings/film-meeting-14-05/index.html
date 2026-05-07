@@ -755,48 +755,17 @@
     line-height: 1.55;
     margin: 0 0 24px;
   }
-  .modal-form {
-    display: grid;
-    gap: 14px;
-  }
-  .modal-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .modal-field label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    letter-spacing: 0.01em;
-  }
-  .modal-field input {
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 12px 16px;
-    font-size: 16px;
-    font-family: var(--font-body);
-    color: var(--ink);
-    background: #fff;
-    outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    width: 100%;
-    -webkit-appearance: none;
-  }
-  .modal-field input::placeholder {
-    color: #aaa;
-  }
-  .modal-field input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-  }
-  .modal-field input:focus-visible {
-    outline: none;
+  .modal-arrow {
+    text-align: center;
+    font-size: 22px;
+    color: var(--accent);
+    margin: 0 0 16px;
+    line-height: 1;
   }
   .modal-submit {
     display: block;
     width: 100%;
-    background: #7570ff;
+    background: var(--accent);
     color: #fff;
     border: none;
     border-radius: var(--radius);
@@ -806,25 +775,16 @@
     font-weight: 600;
     letter-spacing: -0.005em;
     cursor: pointer;
-    transition: background .2s;
-    margin-top: 4px;
+    transition: background .2s, opacity .2s;
+    text-align: center;
+    text-decoration: none;
   }
   .modal-submit:hover {
-    background: #53389e;
+    opacity: 0.88;
   }
-  .modal-success {
-    display: none;
-    text-align: center;
-    padding: 16px 0 8px;
-  }
-  .modal-success p {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    line-height: 1.5;
-    margin: 0;
+  .modal-submit:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
   @media (max-width: 640px) {
     .modal-overlay {
@@ -1171,25 +1131,11 @@
 <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal" id="modal">
     <button class="modal-close" id="modal-close" aria-label="Закрыть">&#215;</button>
-    <h2 class="modal-title" id="modal-title">Оставить заявку</h2>
+    <h2 class="modal-title" id="modal-title">Занять место</h2>
     <p class="modal-subtitle">14 мая · 18:30 МСК · 800 ₽</p>
-    <p class="modal-desc">После отправки я напишу вам в Telegram — пришлю ссылку на оплату и в подарок памятку о том, как смотреть фильм.</p>
-
-    <form class="modal-form" id="modal-form" novalidate>
-      <div class="modal-field">
-        <label for="modal-name">Имя</label>
-        <input type="text" id="modal-name" name="name" placeholder="Ваше имя" required autocomplete="given-name" />
-      </div>
-      <div class="modal-field">
-        <label for="modal-tel">Telegram</label>
-        <input type="text" id="modal-tel" name="tel" placeholder="@username или номер телефона" required />
-      </div>
-      <button type="submit" class="modal-submit">Отправить заявку</button>
-    </form>
-
-    <div class="modal-success" id="modal-success">
-      <p>Заявка отправлена. Жду вас на встрече — напишу в Telegram в ближайшее время.</p>
-    </div>
+    <p class="modal-desc">Напишите мне в Telegram: <strong>«Хочу на фильм-встречу 14 мая»</strong> — я пришлю реквизиты оплаты и памятку о фильме в подарок.</p>
+    <p class="modal-arrow" aria-hidden="true">&#8595;</p>
+    <a class="modal-submit" href="https://t.me/litaoyoga?text=Хочу%20на%20фильм-встречу%2014%20мая" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 </div>
 
@@ -1197,10 +1143,7 @@
 (function () {
   'use strict';
 
-  var overlay = document.getElementById('modal-overlay');
-  var modal   = document.getElementById('modal');
-  var form    = document.getElementById('modal-form');
-  var success = document.getElementById('modal-success');
+  var overlay  = document.getElementById('modal-overlay');
   var closeBtn = document.getElementById('modal-close');
 
   /* --- открытие --- */
@@ -1240,13 +1183,6 @@
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
   });
 
-  /* --- submit: прототип, без реальной отправки --- */
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    form.style.display = 'none';
-    document.querySelector('.modal-desc').style.display = 'none';
-    success.style.display = 'block';
-  });
 })();
 </script>
 
