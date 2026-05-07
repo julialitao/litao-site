@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Фильм-встреча 14 мая · превью v2</title>
+<title>Кино-встреча 14 мая · превью v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -122,7 +122,7 @@
     position: relative;
     z-index: 1;
     padding-top: 56px;
-    padding-bottom: 56px;
+    padding-bottom: 120px;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -613,6 +613,9 @@
     border-bottom: none;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .epigraph-section blockquote {
     margin: 0 auto;
@@ -625,7 +628,6 @@
     color: #fff;
     letter-spacing: -0.015em;
     font-style: italic;
-    white-space: nowrap;
   }
   .epigraph-section .who {
     margin-top: 32px;
@@ -686,6 +688,7 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
   }
+
 
   /* ============== modal ============== */
   .modal-overlay {
@@ -802,11 +805,12 @@
   @media (max-width: 640px) {
     section { padding: 56px 0 40px; }
     .hero { min-height: 100vh; min-height: 100svh; }
-    .hero .wrap { padding-top: 40px !important; padding-bottom: 40px !important; padding-left: 40px !important; padding-right: 40px !important; }
+    .hero .wrap { padding-top: 40px !important; padding-bottom: 120px !important; padding-left: 40px !important; padding-right: 40px !important; }
     .about-grid p { font-size: 15px; margin-bottom: 17px; max-width: 100%; }
     br.mobile-br { display: block; }
     #film::before { background: rgba(0,0,0,0.60); }
-    .hero .meta { display: block; }
+    .hero .meta { display: block; text-align: center; }
+    .hero .meta .dot { margin: 0 4px; }
     .epigraph-section { padding: 72px 0 80px; }
     .wrap { padding: 0 40px; }
     nav.top .inner { padding: 12px 20px; }
@@ -819,7 +823,7 @@
 
 <nav class="top" aria-label="Основная навигация">
   <div class="inner">
-    <a class="brand" href="#top">Фильм-встреча · <em>14 мая</em></a>
+    <a class="brand" href="#top">Кино-встреча · <em>14 мая</em></a>
     <a class="cta-mini" href="#payment">Записаться</a>
   </div>
 </nav>
@@ -827,13 +831,13 @@
 <!-- ============== BLOCK 1 — HERO ============== -->
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="eyebrow">Фильм-встреча · Онлайн</div>
+    <div class="eyebrow">Кино-встреча · Онлайн</div>
 
     <h1>Весна, лето, осень, зима… и снова весна</h1>
     <p class="film-line">Фильм Ким Ки Дука · Встреча о природе человека и циклах жизни</p>
 
     <div class="meta">
-      Чт 14 мая <span class="dot">·</span> 18:30 МСК <span class="dot">·</span> Zoom <span class="dot">·</span> 800 ₽
+      14 мая <span class="dot">·</span> 18:30 МСК <span class="dot">·</span> Zoom <span class="dot">·</span> 800 ₽
     </div>
 
     <div class="cta-row">
@@ -987,7 +991,7 @@
         <p class="roles">
           Преподаватель йоги, йогатерапевт — работаю с тревожностью и стрессом. Арт-терапевт. Психолог-консультант. Практик и тренер ненасильственного общения.
         </p>
-        <p>Веду йога-клуб онлайн и в рамках него — читальные встречи, фильм-встречи и арт-йогу.</p>
+        <p>Веду йога-клуб онлайн и в рамках него — читальные встречи, кино-встречи и арт-йогу.</p>
 
         <blockquote class="author-quote">
           Я здесь не как кинокритик, не учу правильному видению. Моя цель — создать пространство, где кино — повод встретиться с собой, выдохнуть и побыть с тем, что живо внутри вместе с другими. И, возможно, расширить представление о себе и мире.
@@ -1081,7 +1085,7 @@
       <details>
         <summary>Это йога или не йога?</summary>
         <div class="answer">
-          <p>Это не йога в смысле асан и коврика. Это часть моего пространства, где я работаю с телом, смыслом и разговором. Фильм-встреча — про честный диалог с собой и другими через кино.</p>
+          <p>Это не йога в смысле асан и коврика. Это часть моего пространства, где я работаю с телом, смыслом и разговором. Кино-встреча — про честный диалог с собой и другими через кино.</p>
         </div>
       </details>
 
@@ -1102,7 +1106,7 @@
       <details>
         <summary>Что будет после встречи?</summary>
         <div class="answer">
-          <p>После встречи открывается трёхдневное окно клуба — до 17 мая включительно. Если решишь оформить подписку, 800 ₽ за фильм-встречу засчитываются в первый месяц. Без нажима: встреча самодостаточна, клуб — опция.</p>
+          <p>После встречи открывается трёхдневное окно клуба — до 17 мая включительно. Если решишь оформить подписку, 800 ₽ за кино-встречу засчитываются в первый месяц. Без нажима: встреча самодостаточна, клуб — опция.</p>
         </div>
       </details>
     </div>
@@ -1121,10 +1125,11 @@
 <!-- ============== BLOCK 11 — ЭПИГРАФ ============== -->
 <section class="epigraph-section" aria-label="Эпиграф из фильма">
   <blockquote>
-    «Душа подобна цветку дикой сливы — вянет до срока»
+    «Душа подобна цветку дикой сливы —<br>вянет до срока»
     <div class="who"></div>
   </blockquote>
 </section>
+
 
 
 <!-- ============== MODAL ============== -->
@@ -1133,9 +1138,9 @@
     <button class="modal-close" id="modal-close" aria-label="Закрыть">&#215;</button>
     <h2 class="modal-title" id="modal-title">Занять место</h2>
     <p class="modal-subtitle">14 мая · 18:30 МСК · 800 ₽</p>
-    <p class="modal-desc">Напишите мне в Telegram: <strong>«Хочу на фильм-встречу 14 мая»</strong> — я пришлю реквизиты оплаты и памятку о фильме в подарок.</p>
+    <p class="modal-desc">Напишите мне в Telegram: <strong>«Хочу на кино-встречу 14 мая»</strong> — я пришлю реквизиты оплаты и памятку о том, как смотреть фильм в подарок.</p>
     <p class="modal-arrow" aria-hidden="true">&#8595;</p>
-    <a class="modal-submit" href="https://t.me/litaoyoga?text=Хочу%20на%20фильм-встречу%2014%20мая" target="_blank" rel="noopener">Написать в Telegram</a>
+    <a class="modal-submit" href="https://t.me/litaoyoga?text=Хочу%20на%20кино-встречу%2014%20мая" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 </div>
 
@@ -1182,6 +1187,7 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
   });
+
 
 })();
 </script>
