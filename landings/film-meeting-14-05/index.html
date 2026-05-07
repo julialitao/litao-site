@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Фильм-встреча 14 мая · превью v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============== litao.ru palette / tokens ============== */
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f6f4;
+    --bg-panel: #fafaf9;
+    --ink: #181f20;
+    --ink-soft: #3d4445;
+    --mute: #605f5f;
+    --line: #e8e6e1;
+    --line-soft: #f0eeea;
+    --accent: #951cc5;
+    --accent-soft: #f1e2f9;
+    --accent-ink: #6b0e94;
+    --rose: #eb6dbe;
+    --shadow: 0 1px 3px rgba(24, 31, 32, 0.04), 0 10px 30px rgba(24, 31, 32, 0.05);
+    --radius: 10px;
+    --font-heading: 'Nunito', 'Inter', -apple-system, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.02em; color: var(--ink); }
+  h1 { font-size: clamp(40px, 7vw, 78px); line-height: 1.04; font-weight: 700; margin: 0 0 20px; }
+  h2 { font-size: clamp(28px, 4.8vw, 52px); line-height: 1.1; font-weight: 700; margin: 0 0 14px; letter-spacing: -0.025em; }
+  h3 { font-size: clamp(20px, 2.8vw, 32px); line-height: 1.25; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.015em; }
+  h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mute); margin: 0 0 12px; font-weight: 600; font-family: var(--font-body); }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); transition: border-color .2s; }
+  a:hover { border-bottom-color: var(--accent); }
+  ul, ol { padding-left: 22px; margin: 0 0 14px; color: var(--ink-soft); }
+  li { margin-bottom: 8px; }
+  .wrap { max-width: none; margin: 0; padding: 0 159px; }
+  .small { font-size: 14px; color: var(--mute); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* ============== sticky nav ============== */
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 24px; max-width: 920px; margin: 0 auto; }
+  nav.top .brand {
+    font-family: var(--font-heading);
+    font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+    border: 0; color: var(--ink);
+  }
+  nav.top .brand em { color: var(--accent); font-style: normal; }
+  nav.top .cta-mini {
+    font-size: 13px; padding: 9px 18px; border-radius: 999px;
+    background: #7570ff; color: #fff; border: 0;
+    font-weight: 600; transition: .2s;
+    white-space: nowrap;
+  }
+  nav.top .cta-mini:hover { background: #53389e; }
+
+  /* ============== preview banner ============== */
+  .preview-banner {
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    font-size: 12px;
+    text-align: center;
+    padding: 8px 16px;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+  }
+  .preview-banner b { color: var(--accent-ink); }
+
+  /* ============== hero ============== */
+  .hero {
+    position: relative;
+    min-height: clamp(480px, 60vw, 720px);
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--ink);
+    background-image: url('main.png');
+    background-size: cover;
+    background-position: center 30%;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  /* тёмный overlay для читаемости текста */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(24, 31, 32, 0.10) 0%,
+      rgba(24, 31, 32, 0.45) 45%,
+      rgba(24, 31, 32, 0.82) 100%
+    );
+    z-index: 0;
+  }
+  .hero .wrap {
+    position: relative;
+    z-index: 1;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 159px !important;
+    padding-right: 159px !important;
+  }
+  .hero .eyebrow {
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 20px; font-weight: 700;
+  }
+  .hero h1 {
+    max-width: 800px;
+    color: #fff;
+  }
+  .hero .film-line {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 2vw, 19px);
+    color: rgba(255,255,255,0.78);
+    font-weight: 400;
+    margin-top: 4px;
+    letter-spacing: -0.005em;
+  }
+  .hero .film-line em { font-style: normal; color: #fff; }
+  .hero .meta {
+    margin-top: 36px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: var(--radius);
+    font-family: var(--font-heading);
+    font-size: clamp(15px, 1.7vw, 17px);
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.005em;
+    display: inline-block;
+  }
+  .hero .meta .dot { color: var(--rose); margin: 0 8px; }
+  .hero .cta-row {
+    margin-top: 28px;
+    display: flex; flex-wrap: wrap; gap: 12px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--ink); color: #fff;
+    padding: 16px 36px;
+    border-radius: var(--radius);
+    border: 0;
+    font-family: var(--font-heading);
+    font-weight: 600; font-size: 16px;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: .2s;
+  }
+  .btn:hover { background: var(--accent); }
+  .hero .btn {
+    background: #7570ff;
+    color: #fff;
+  }
+  .hero .btn:hover {
+    background: #53389e;
+    color: #fff;
+  }
+
+  /* ============== sections ============== */
+  section { padding: 80px 0 70px; border-bottom: 1px solid var(--line); }
+  section.alt { background: var(--bg-soft); }
+  section .eyebrow {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4.8vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    text-transform: none;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  section .lead { font-size: 18px; color: var(--ink-soft); max-width: 720px; margin-bottom: 28px; line-height: 1.6; }
+
+  #about-meeting { padding-bottom: 40px; }
+
+  /* ============== about-meeting (block 2) ============== */
+  .about-grid p {
+    font-size: 16px;
+    max-width: 75%;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  /* ============== for-whom (block 3) ============== */
+  .for-whom-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: grid;
+    gap: 10px;
+    max-width: 760px;
+  }
+  .for-whom-list li {
+    padding: 20px 24px;
+    background: #fff;
+    border: none;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: 0 1px 3px rgba(24,31,32,0.05);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .for-whom-list li:hover {
+    border-left-color: var(--rose);
+    box-shadow: var(--shadow);
+  }
+
+  /* ============== film section (block 4) — dark bg ============== */
+  #film {
+    min-height: clamp(220px, 35vw, 480px);
+    background-color: var(--ink);
+    background-image: url('8888.jpeg');
+    background-size: cover;
+    background-position: center 20%;
+    position: relative;
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  #film::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.50);
+    z-index: 0;
+  }
+  #film .wrap {
+    position: relative;
+    z-index: 1;
+  }
+  #film h3 { color: #fff; }
+  #film .film-tech { color: rgba(255,255,255,0.65); }
+  #film .eyebrow {
+    color: var(--rose);
+  }
+  .film-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 36px 36px;
+    margin-top: 8px;
+    max-width: 760px;
+  }
+  .film-card h3 {
+    font-size: clamp(20px, 2.8vw, 32px);
+    margin: 0 0 6px;
+    color: #fff;
+  }
+  .film-card .film-tech {
+    font-size: 14px; color: rgba(255,255,255,0.50);
+    margin-bottom: 22px; font-weight: 500;
+  }
+  .film-card p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.80); }
+  .film-card p strong { color: #fff; font-weight: 600; }
+  .deadline {
+    margin-top: 18px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.20);
+    color: #fff;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+    display: inline-block;
+    max-width: 600px;
+  }
+  .deadline b { color: var(--rose); font-weight: 700; }
+  @media (max-width: 760px) {
+    .film-card { padding: 28px 24px; }
+  }
+
+  /* ============== special (block 5) — 2×2 grid ============== */
+  #special {
+    background: var(--bg);
+  }
+  .special-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 800px;
+  }
+  .special-list li {
+    padding: 28px 26px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+    transition: border-color .2s, box-shadow .2s;
+    position: relative;
+  }
+  .special-list li .card-icon {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+  }
+  .special-list li:hover { border-color: var(--accent-soft); box-shadow: var(--shadow); }
+  @media (max-width: 580px) {
+    .special-list { grid-template-columns: 1fr; }
+  }
+
+  /* ============== about author (block 6) ============== */
+  .author-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 12px;
+  }
+  .author-photo {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.3);
+    transform-origin: center top;
+    margin-top: -24px;
+  }
+  .author-body h3 {
+    font-size: clamp(20px, 2.8vw, 32px);
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+  .author-body .name {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .author-body p { font-size: 16px; line-height: 1.65; }
+  .author-body p {
+    margin-left: 40px;
+  }
+  .author-body .roles {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .author-body .author-quote {
+    margin-top: 24px;
+    padding: 22px 26px;
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: italic;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 760px) {
+    .author-grid { grid-template-columns: 1fr; gap: 28px; }
+    .author-photo { width: 220px; height: 220px; margin: 0 auto; }
+    .author-body p { margin-left: 0; }
+  }
+
+  /* ============== format / payment (block 7) — dark accent ============== */
+  #payment {
+    background-color: var(--ink);
+    background-image: url('another_3.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom-color: rgba(255,255,255,0.08);
+    padding: 96px 0;
+  }
+  #payment::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 0;
+  }
+  #payment .wrap {
+    position: relative;
+    z-index: 1;
+  }
+  #payment .eyebrow {
+    color: var(--rose);
+  }
+  .format-card {
+    background: transparent;
+    border: none;
+    padding: 0;
+    max-width: 640px;
+    margin-top: 0;
+  }
+  .format-card .price {
+    font-family: var(--font-heading);
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .format-card .format-meta {
+    font-family: var(--font-heading);
+    font-size: clamp(15px, 1.7vw, 17px);
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+  .format-card .format-meta .dot { color: var(--rose); margin: 0 8px; }
+  .format-card .note {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .format-card .club-note {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--radius);
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.55;
+  }
+  .format-card .club-note b { color: #fff; font-weight: 700; }
+  .format-card .cta-row {
+    margin-top: 32px;
+  }
+  .format-card .btn {
+    background: #7570ff;
+    color: #fff;
+  }
+  .format-card .btn:hover {
+    background: #53389e;
+    color: #fff;
+  }
+
+  /* ============== reviews (block 8) — alt bg, accent left border ============== */
+  #reviews { background: var(--bg-soft); }
+  .reviews { display: grid; gap: 16px; max-width: 760px; }
+  .review {
+    background: #fff;
+    border: none;
+    border-left: 3px solid var(--accent-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 28px 30px;
+    box-shadow: 0 1px 3px rgba(24,31,32,0.04);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .review:hover { border-left-color: var(--accent); box-shadow: var(--shadow); }
+  .review .quote {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0 0 18px;
+    font-style: italic;
+  }
+  .review .who {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .review .who-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+    font-style: normal;
+    letter-spacing: -0.005em;
+  }
+
+  /* ============== faq (block 9) ============== */
+  .faq { display: grid; gap: 0; max-width: 760px; margin-top: 12px; }
+  .faq details {
+    background: transparent;
+    border: none;
+    border-top: 2px solid #f3f2fa;
+  }
+  .faq details:last-child { border-bottom: 2px solid #f3f2fa; }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 30px 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    line-height: 1.4;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M9 20H31' stroke='%23951cc5' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M20 9V31' stroke='%23951cc5' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    transition: background-color .2s, transform .2s;
+    margin-top: 0;
+    transform: none;
+  }
+  @media (hover: hover) {
+    .faq summary:hover::after {
+      background-color: #f3f2fa;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M9 20H31' stroke='%2353389e' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M20 9V31' stroke='%2353389e' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+  }
+  .faq details[open] summary::after {
+    transform: rotate(45deg);
+    background-color: #f3f2fa;
+  }
+  .faq .answer {
+    padding: 0 0 20px;
+    font-size: 17px;
+    color: var(--mute);
+    line-height: 1.65;
+  }
+  .faq .answer p:last-child { margin-bottom: 0; }
+
+  /* ============== telegram strip (block 10) ============== */
+  .tg-strip {
+    padding: 64px 0;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .tg-strip p {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 2.2vw, 21px);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .tg-strip a {
+    color: var(--accent-ink);
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 30px);
+    border-bottom: 2px solid var(--accent-soft);
+    transition: border-color .2s, color .2s;
+  }
+  .tg-strip a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ============== epigraph (block 11) ============== */
+  .epigraph-section {
+    padding: 112px 0 120px;
+    background: linear-gradient(rgba(24,31,32,0.55), rgba(24,31,32,0.55)), url('another_4.png') center 80% / cover no-repeat;
+    border-bottom: none;
+    text-align: center;
+    overflow: hidden;
+  }
+  .epigraph-section blockquote {
+    margin: 0 auto;
+    max-width: none;
+    padding: 0 24px;
+    font-family: var(--font-heading);
+    font-size: clamp(14px, 3.6vw, 34px);
+    line-height: 1.35;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.015em;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .epigraph-section .who {
+    margin-top: 32px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--rose);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ============== footer ============== */
+  footer { padding: 50px 0 40px; text-align: center; color: var(--mute); font-size: 13px; background: var(--bg-soft); border-top: 1px solid var(--line); }
+  footer p { color: var(--mute); margin-bottom: 6px; }
+  footer a { border: 0; color: var(--mute); border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); }
+
+  /* ============== film-frame divider ============== */
+  .film-frame-divider {
+    width: 100%;
+    height: clamp(220px, 35vw, 480px);
+    background-color: var(--ink);
+    background-image: url('another_2.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .film-frame-divider::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+  }
+  .film-frame-divider .placeholder-label {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--rose);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ============== color stripe ============== */
+  .color-stripe {
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to right, #756FFE, #EA7BF5);
+  }
+
+  br.mobile-br { display: none; }
+
+  /* ============== reduced motion ============== */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+
+  /* ============== modal ============== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(24, 31, 32, 0.55);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.is-open {
+    display: flex;
+  }
+  .modal {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 480px;
+    width: 100%;
+    padding: 40px 36px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(24, 31, 32, 0.14), 0 1px 4px rgba(24, 31, 32, 0.06);
+  }
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--mute);
+    font-size: 20px;
+    line-height: 1;
+    transition: background .2s, color .2s;
+    padding: 0;
+  }
+  .modal-close:hover {
+    background: var(--bg-soft);
+    color: var(--ink);
+  }
+  .modal-title {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.15;
+    padding-right: 32px;
+  }
+  .modal-subtitle {
+    font-size: 14px;
+    color: var(--mute);
+    margin: 0 0 10px;
+  }
+  .modal-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0 0 24px;
+  }
+  .modal-form {
+    display: grid;
+    gap: 14px;
+  }
+  .modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .modal-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+  .modal-field input {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: #fff;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .modal-field input::placeholder {
+    color: #aaa;
+  }
+  .modal-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .modal-field input:focus-visible {
+    outline: none;
+  }
+  .modal-submit {
+    display: block;
+    width: 100%;
+    background: #7570ff;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 15px 24px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: background .2s;
+    margin-top: 4px;
+  }
+  .modal-submit:hover {
+    background: #53389e;
+  }
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 16px 0 8px;
+  }
+  .modal-success p {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .modal-overlay {
+      align-items: flex-end;
+      padding: 0;
+    }
+    .modal {
+      border-radius: var(--radius) var(--radius) 0 0;
+      max-width: 100%;
+      padding: 32px 24px 36px;
+    }
+  }
+
+  /* ============== mobile tweaks ============== */
+  @media (max-width: 640px) {
+    section { padding: 56px 0 40px; }
+    .hero { min-height: 100vh; min-height: 100svh; }
+    .hero .wrap { padding-top: 40px !important; padding-bottom: 40px !important; padding-left: 40px !important; padding-right: 40px !important; }
+    .about-grid p { font-size: 15px; margin-bottom: 17px; max-width: 100%; }
+    br.mobile-br { display: block; }
+    #film::before { background: rgba(0,0,0,0.60); }
+    .hero .meta { display: block; }
+    .epigraph-section { padding: 72px 0 80px; }
+    .wrap { padding: 0 40px; }
+    nav.top .inner { padding: 12px 20px; }
+    .tg-strip { padding: 36px 0; }
+    .color-stripe { height: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Основная навигация">
+  <div class="inner">
+    <a class="brand" href="#top">Фильм-встреча · <em>14 мая</em></a>
+    <a class="cta-mini" href="#payment">Записаться</a>
+  </div>
+</nav>
+
+<!-- ============== BLOCK 1 — HERO ============== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Фильм-встреча · Онлайн</div>
+
+    <h1>Весна, лето, осень, зима… и снова весна</h1>
+    <p class="film-line">Фильм Ким Ки Дука · Встреча о природе человека и циклах жизни</p>
+
+    <div class="meta">
+      Чт 14 мая <span class="dot">·</span> 18:30 МСК <span class="dot">·</span> Zoom <span class="dot">·</span> 800 ₽
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="#payment">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== BLOCK 2 — О ЧЁМ ВСТРЕЧА ============== -->
+<section id="about-meeting">
+  <div class="wrap">
+    <div class="eyebrow">О чём эта встреча</div>
+
+    <div class="about-grid">
+      <p>
+        В одном и том же фильме каждый из нас непременно увидит что-то своё. И я вижу смысл в том, чтобы принести своё прочтение и услышать чужое. Когда несколько людей приходят с разным, картина становится объёмнее. Не потому что кто-то угадал правильно, а потому что каждый смотрел честно.
+      </p>
+      <p>
+        На встрече мы поговорим про то, что увидели и почувствовали. Что понравилось, что зацепило, что вызвало вопрос или раздражение. Не про замысел режиссёра, а про своё. Кино работает как зеркало: через героев часто видишь себя, замечаешь свои реакции и вопросы. Моя роль — не вести к правильным трактовкам, а помогать исследовать себя и свои переживания через кино.
+      </p>
+      <p>
+        Для встречи достаточно только просмотреть фильм. Не нужно читать рецензии или специально готовиться — наоборот, лучше прийти свободным от чужих мнений. Просто принеси то, что осталось внутри.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FILM FRAME DIVIDER ============== -->
+<div class="film-frame-divider" data-photo="film-frame" role="img" aria-label="Кадр из фильма">
+</div>
+
+<!-- ============== BLOCK 3 — ДЛЯ КОГО ============== -->
+<section id="for-whom" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Для кого эта встреча</div>
+
+    <ul class="for-whom-list">
+      <li>Любишь кино и хочется видеть в нём больше, чем сюжет. После просмотра остаются мысли и вопросы, которые не с кем глубоко обсудить.</li>
+      <li>Ценишь искренние разговоры о человеческом — об уязвимости, отношениях, чувствах.</li>
+      <li>Есть усталость от лекций и монологов, когда эксперт объясняет тебе фильм. Хочется живого, тёплого разговора, где не оценивают.</li>
+      <li>Интересно, как один и тот же фильм увидели разные люди.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== BLOCK 4 — ФИЛЬМ ============== -->
+<section id="film">
+  <div class="wrap">
+    <div class="eyebrow">Фильм</div>
+
+    <h3>Весна, лето, осень, зима…<br class="mobile-br"> и снова весна</h3>
+    <p class="film-tech">Режиссёр Ким Ки Дук · Южная Корея / Германия · 2003 · 103 минуты</p>
+    <p class="deadline"><b>Посмотреть важно до вечера среды 13 мая.</b> Один раз достаточно.</p>
+  </div>
+</section>
+
+<!-- ============== BLOCK 5 — ЧТО ДЕЛАЕТ ВСТРЕЧУ ОСОБЕННОЙ ============== -->
+<section id="special">
+  <div class="wrap">
+    <div class="eyebrow">Что делает встречу особенной</div>
+
+    <ul class="special-list">
+      <li>
+        <!-- Иконка 1: группа / голос — три фигуры в кругу -->
+        <svg class="card-icon" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- фигура центральная -->
+          <circle cx="26" cy="18" r="4.2" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M18.5 32c0-4.1 3.4-7.5 7.5-7.5s7.5 3.4 7.5 7.5" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- фигура левая -->
+          <circle cx="13" cy="22" r="3.2" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M7.8 32c0-2.5 2.3-4.5 5.2-4.5" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 27.5c1.6 0 2.9 1.3 2.9 2.9" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- фигура правая -->
+          <circle cx="39" cy="22" r="3.2" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M44.2 32c0-2.5-2.3-4.5-5.2-4.5" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M39 27.5c-1.6 0-2.9 1.3-2.9 2.9" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Небольшая группа, где каждый голос слышен и важен.
+      </li>
+      <li>
+        <!-- Иконка 2: не записывается — перечёркнутая видеокамера (вид спереди) -->
+        <svg class="card-icon" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- корпус камеры -->
+          <rect x="8" y="18" width="36" height="16" rx="3" stroke="#3d4445" stroke-width="1.1"/>
+          <!-- объектив — внешнее кольцо -->
+          <circle cx="20" cy="26" r="6" stroke="#3d4445" stroke-width="1.2"/>
+          <!-- объектив — внутренняя линза -->
+          <circle cx="20" cy="26" r="2.5" stroke="#3d4445" stroke-width="1.1"/>
+          <!-- кнопка записи -->
+          <circle cx="38" cy="22" r="2" stroke="#3d4445" stroke-width="1.1"/>
+          <!-- перечёркивающая диагональ -->
+          <line x1="7" y1="12" x2="45" y2="40" stroke="#3d4445" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Встреча не записывается. Это создаёт другое качество присутствия и безопасности — можно говорить открыто о своём разном.
+      </li>
+      <li>
+        <!-- Иконка 3: структура и пространство — весы -->
+        <svg class="card-icon" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- балка -->
+          <line x1="11" y1="20" x2="41" y2="20" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- точка опоры -->
+          <circle cx="26" cy="20" r="2" stroke="#3d4445" stroke-width="1.1" fill="none"/>
+          <!-- стойка -->
+          <line x1="26" y1="20" x2="26" y2="40" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- основание -->
+          <line x1="18" y1="40" x2="34" y2="40" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- левая нить -->
+          <line x1="11" y1="20" x2="11" y2="30" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- левая чаша -->
+          <path d="M6 30 Q11 36 16 30" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+          <!-- правая нить -->
+          <line x1="41" y1="20" x2="41" y2="30" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round"/>
+          <!-- правая чаша -->
+          <path d="M36 30 Q41 36 46 30" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+        </svg>
+        Есть структура и есть пространство. Разговор не уходит в болтовню и не зажат в рамки.
+      </li>
+      <li>
+        <!-- Иконка 4: тепло / принятие — сердце в руках (руки из стиля litao.ru) -->
+        <svg class="card-icon" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- сердце сверху между руками -->
+          <path d="M26 16 C26 16 21 12 21 8.5 C21 5 23.5 3 26 6 C28.5 3 31 5 31 8.5 C31 12 26 16 26 16 Z" stroke="#3d4445" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- левая рука (пути из litao.ru/yoga-teacher icon 4) -->
+          <path d="M8 40.4L8.4 39C8.95 37.2 8.98 38.2 10.9 38.7C12.8 39.1 14.2 39.8 14.5 37.9C14.7 36.6 14.7 36 15.9 35.3C17 34.6 16.2 34.6 14.9 34.1C14.3 33.8 13.5 33.3 12.9 32.5C11.6 30.9 12.5 31.7 13.6 32.2C14.3 32.4 14.95 32.6 15.5 32.7C17.05 32.95 17.1 33 16.6 31.8C16.3 30.8 16.2 31 17.4 30.9L18.2 30.9C19.5 30.8 19.1 30.7 18.5 29.3L16.9 25.2C17.8 22.9 17.9 20.7 17.5 18.6C16.9 15.3 13.9 12.2 8.1 12.4" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.4 42.6L19.6 39.9C19.7 38 19.7 38.5 21.3 37.5C23.2 36.3 23.1 33.7 23.4 31.4L24.4 25.1C25 22 22.5 20.8 22.1 23.4L21.3 28.6" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22.3 22.8L22.6 20.7C23 19.1 20.6 17.5 20.1 19.9L18.8 25.6" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 20.1C21.1 17.1 18.1 15.9 17.5 18.5" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- правая рука (зеркально) -->
+          <path d="M44 40.4L43.6 39C43.1 37.2 43.1 38.2 41.1 38.7C39.2 39.1 37.9 39.8 37.6 37.9C37.4 36.6 37.4 36 36.2 35.3C35.1 34.6 35.8 34.6 37.1 34.1C37.8 33.8 38.5 33.3 39.1 32.5C40.4 30.9 39.6 31.7 38.4 32.2C37.7 32.4 37.1 32.6 36.5 32.7C35 32.95 34.9 33 35.5 31.8C35.8 30.8 35.9 31 34.6 30.9L33.8 30.9C32.5 30.8 32.9 30.7 33.5 29.3L35.1 25.2C34.2 22.9 34.1 20.7 34.5 18.6C35.1 15.3 38.1 12.2 43.9 12.4" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32.6 42.6L32.4 39.9C32.3 38 32.3 38.5 30.7 37.5C28.8 36.3 28.9 33.7 28.6 31.4L27.6 25.1C27 22 29.5 20.8 29.9 23.4L30.7 28.6" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M29.7 22.8L29.4 20.7C29 19.1 31.4 17.5 31.9 19.9L33.2 25.6" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 20.1C30.9 17.1 33.9 15.9 34.5 18.5" stroke="#3d4445" stroke-width="1.1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Тёплая, поддерживающая атмосфера — разные люди, разные взгляды, и при этом ощущение, что тебя слышат.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== BLOCK 6 — О ВЕДУЩЕЙ ============== -->
+<section id="author" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">О ведущей</div>
+
+    <div class="author-grid">
+      <div class="author-photo">
+        <img src="666.jpg" alt="Юлия Литао" />
+      </div>
+      <div class="author-body">
+        <p class="name">Юлия Литао</p>
+        <p class="roles">
+          Преподаватель йоги, йогатерапевт — работаю с тревожностью и стрессом. Арт-терапевт. Психолог-консультант. Практик и тренер ненасильственного общения.
+        </p>
+        <p>Веду йога-клуб онлайн и в рамках него — читальные встречи, фильм-встречи и арт-йогу.</p>
+
+        <blockquote class="author-quote">
+          Я здесь не как кинокритик, не учу правильному видению. Моя цель — создать пространство, где кино — повод встретиться с собой, выдохнуть и побыть с тем, что живо внутри вместе с другими. И, возможно, расширить представление о себе и мире.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BLOCK 7 — ФОРМАТ И СТОИМОСТЬ ============== -->
+<section id="payment">
+  <div class="wrap">
+    <div class="eyebrow">Формат участия и стоимость</div>
+
+    <div class="format-card">
+      <div class="price">800 ₽</div>
+      <div class="format-meta">
+        Zoom <span class="dot">·</span> 14 мая <span class="dot">·</span> 18:30 МСК <span class="dot">·</span> 2 часа
+      </div>
+
+      <p class="note">Места ограничены — это формат малой группы с живым присутствием и настоящим диалогом.</p>
+
+      <div class="club-note">
+        Для участниц клуба встреча включена в подписку — отдельно регистрироваться не нужно, <b>ссылка придёт в чат клуба.</b>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="#">Записаться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BLOCK 8 — ОТЗЫВЫ ============== -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Отзывы участников прошлых встреч</div>
+
+    <div class="reviews">
+      <article class="review">
+        <p class="quote">Сначала показалось, что с фильмом разговор будет более поверхностным, а в итоге, если бы не твоя рекомендация, я бы возможно никогда не посмотрела фильм и не открыла для себя те вопросы и ответы, которые зародились на встрече. Ты очень здорово задаёшь темп, мягко возвращаешь, когда мы начинаем сходить с пути.</p>
+        <div class="who">
+          <cite class="who-name">— Екатерина</cite>
+        </div>
+      </article>
+
+      <article class="review">
+        <p class="quote">Для меня все наши встречи очень заходят. Наполненность, полезность лично для меня, можно сказать такая групповая терапия поддержки — мы все разных возрастов и взглядов, но в то же время поддерживающая среда. Сама атмосфера добрая и светлая.</p>
+        <div class="who">
+          <cite class="who-name">— Умит</cite>
+        </div>
+      </article>
+
+      <article class="review">
+        <p class="quote">Мне понравился такой симбиоз: фильм можно посмотреть быстрее и легче, чем прочитать книгу. В перерывах между чтением и обсуждением книг — отличная идея. Твоё поле и окружение такое, что любая встреча и формат будет наполнен пользой, красотой и теплом.</p>
+        <div class="who">
+          <cite class="who-name">— Елена</cite>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BLOCK 9 — ЧАСТЫЕ ВОПРОСЫ ============== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+
+    <div class="faq">
+      <details>
+        <summary>Что, если я не посмотрю фильм до встречи?</summary>
+        <div class="answer">
+          <p>Тогда лучше не приходить — смысл в том, что каждый говорит из своего просмотра. Без него будешь слушать со стороны, и это ломает формат для остальных. Напиши, перенесём место на следующую встречу (раз в три месяца).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Я не умею говорить о кино, литературе, философии.</summary>
+        <div class="answer">
+          <p>Здесь это и не важно. Главное — заметить, что увидел и почувствовал. Сам формат поможет не уйти в болтовню.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>А вдруг я буду молчать?</summary>
+        <div class="answer">
+          <p>Для каждого есть своё время. Если захочется пропустить, можно. Если захочется только слушать, тоже можно. Никто не выдёргивает за руку.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Это йога или не йога?</summary>
+        <div class="answer">
+          <p>Это не йога в смысле асан и коврика. Это часть моего пространства, где я работаю с телом, смыслом и разговором. Фильм-встреча — про честный диалог с собой и другими через кино.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Можно записать встречу?</summary>
+        <div class="answer">
+          <p>Запись влияет на ощущение безопасности и открытость. Чтобы каждый мог говорить свободно и без давления — встречи не записываем.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Я уже участница йога-клуба. Мне платить?</summary>
+        <div class="answer">
+          <p>Нет. Для участниц йога-клуба встреча включена в подписку, ссылка на Zoom приходит в чат клуба. Отдельно регистрироваться не нужно.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Что будет после встречи?</summary>
+        <div class="answer">
+          <p>После встречи открывается трёхдневное окно клуба — до 17 мая включительно. Если решишь оформить подписку, 800 ₽ за фильм-встречу засчитываются в первый месяц. Без нажима: встреча самодостаточна, клуб — опция.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="color-stripe" aria-hidden="true"></div>
+
+<!-- ============== BLOCK 10 — TELEGRAM ============== -->
+<div class="tg-strip" role="complementary" aria-label="Контакт">
+  <div class="wrap">
+    <p>Остались вопросы? Напиши мне лично — <a href="https://t.me/litaoyoga" target="_blank" rel="noopener">@litaoyoga</a> в Telegram.</p>
+  </div>
+</div>
+
+<!-- ============== BLOCK 11 — ЭПИГРАФ ============== -->
+<section class="epigraph-section" aria-label="Эпиграф из фильма">
+  <blockquote>
+    «Душа подобна цветку дикой сливы — вянет до срока»
+    <div class="who"></div>
+  </blockquote>
+</section>
+
+
+<!-- ============== MODAL ============== -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">&#215;</button>
+    <h2 class="modal-title" id="modal-title">Оставить заявку</h2>
+    <p class="modal-subtitle">14 мая · 18:30 МСК · 800 ₽</p>
+    <p class="modal-desc">После отправки я напишу вам в Telegram — пришлю ссылку на оплату и в подарок памятку о том, как смотреть фильм.</p>
+
+    <form class="modal-form" id="modal-form" novalidate>
+      <div class="modal-field">
+        <label for="modal-name">Имя</label>
+        <input type="text" id="modal-name" name="name" placeholder="Ваше имя" required autocomplete="given-name" />
+      </div>
+      <div class="modal-field">
+        <label for="modal-tel">Telegram</label>
+        <input type="text" id="modal-tel" name="tel" placeholder="@username или номер телефона" required />
+      </div>
+      <button type="submit" class="modal-submit">Отправить заявку</button>
+    </form>
+
+    <div class="modal-success" id="modal-success">
+      <p>Заявка отправлена. Жду вас на встрече — напишу в Telegram в ближайшее время.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var overlay = document.getElementById('modal-overlay');
+  var modal   = document.getElementById('modal');
+  var form    = document.getElementById('modal-form');
+  var success = document.getElementById('modal-success');
+  var closeBtn = document.getElementById('modal-close');
+
+  /* --- открытие --- */
+  function openModal() {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  /* --- закрытие --- */
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  /* --- перехватываем все кнопки «Записаться» --- */
+  document.querySelectorAll('a.btn, a.cta-mini').forEach(function (btn) {
+    var href = btn.getAttribute('href') || '';
+    if (href === '#' || href === '#payment') {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    }
+  });
+
+  /* --- закрытие крестиком --- */
+  closeBtn.addEventListener('click', closeModal);
+
+  /* --- закрытие кликом по overlay --- */
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  /* --- закрытие по Escape --- */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+
+  /* --- submit: прототип, без реальной отправки --- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    document.querySelector('.modal-desc').style.display = 'none';
+    success.style.display = 'block';
+  });
+})();
+</script>
+
+</body>
+</html>
