@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Путеводитель перед просмотром и встречей 14 мая</title>
+<meta name="description" content="Как смотреть фильм Ким Ки Дука, и что взять с собой на встречу." />
+<meta property="og:title" content="Путеводитель перед просмотром и встречей 14 мая" />
+<meta property="og:description" content="Как смотреть фильм Ким Ки Дука, и что взять с собой на встречу." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* === токены бренда litao === */
+  :root {
+    --bg:           #ffffff;
+    --bg-soft:      #f7f6f4;
+    --ink:          #181f20;
+    --ink-soft:     #3d4445;
+    --mute:         #605f5f;
+    --line:         #e8e6e1;
+    --line-soft:    #f0eeea;
+    --accent:       #951cc5;
+    --accent-soft:  #f1e2f9;
+    --accent-ink:   #6b0e94;
+    --rose:         #eb6dbe;
+    --shadow:       0 1px 3px rgba(24,31,32,.04), 0 10px 30px rgba(24,31,32,.05);
+    --radius:       10px;
+    --font-heading: 'Manrope', 'Inter', -apple-system, Arial, sans-serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  /* === reset === */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  /* === base === */
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === типографика === */
+  h1, h2, h3 {
+    font-family: 'Nunito', var(--font-heading);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+  h2 {
+    font-size: clamp(22px, 3.2vw, 28px);
+    line-height: 1.25;
+    font-weight: 700;
+    margin: 0 0 20px;
+    letter-spacing: -0.015em;
+  }
+  p {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+  }
+  p:last-child { margin-bottom: 0; }
+  ul {
+    padding-left: 22px;
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+  }
+  li { margin-bottom: 8px; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; }
+
+  /* === layout === */
+  .page {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* === шапка === */
+  .guide-header {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .guide-header .kicker {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .guide-header h1 {
+    margin-bottom: 10px;
+    font-family: 'Nunito', var(--font-heading);
+  }
+  .guide-header .director {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .guide-header .guide-label {
+    margin-bottom: 32px;
+    font-family: var(--font-heading);
+    line-height: 0.8;
+  }
+  .guide-label-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .guide-label-sub {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* === вступление === */
+  .guide-intro {
+    padding: 40px 0 0;
+  }
+  .guide-intro p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* === разделитель === */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 48px 0 0;
+  }
+
+  /* === разделы === */
+  .guide-section {
+    padding: 40px 0 0;
+  }
+  .guide-section h2 {
+    color: var(--ink);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line-soft);
+    margin-bottom: 24px;
+  }
+
+  /* === пункты «На встрече» — бежевые карточки === */
+  .meeting-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .meeting-item {
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* === блоки «Сразу после» === */
+  .content-block {
+    margin-bottom: 28px;
+    padding: 20px 24px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent-soft);
+  }
+  .content-block:last-of-type {
+    margin-bottom: 0;
+  }
+  .content-block p.block-title {
+    margin-bottom: 12px;
+    color: var(--ink);
+    font-size: 16px;
+  }
+  .content-block ul {
+    margin-bottom: 0;
+  }
+
+  /* === подсказки во время просмотра === */
+  .watch-levels {
+    margin: 0;
+    display: grid;
+    gap: 16px;
+  }
+  .watch-level {
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+  }
+  .watch-level p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .watch-level p strong {
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+
+  /* === концовка === */
+  .guide-closing {
+    padding: 48px 0 72px;
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  .guide-closing .farewell {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .guide-closing .signature {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  /* === вступительный акцентный блок === */
+  .guide-intro-block {
+    padding: 24px 28px;
+    background: var(--bg-soft);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+  }
+  .guide-intro-block p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* === боковое оглавление === */
+  .layout {
+    display: block;
+  }
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1100px) {
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 0;
+      max-width: calc(65ch + 180px + 56px);
+      margin: 0 auto;
+      align-items: start;
+    }
+    .layout .page {
+      max-width: 65ch;
+      margin: 0;
+    }
+    .toc-sidebar {
+      display: block;
+      position: sticky;
+      top: 32px;
+      padding: 100px 0 24px 0;
+      align-self: start;
+    }
+    .toc-sidebar nav {
+      padding-left: 24px;
+    }
+    .toc-sidebar .toc-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--mute);
+      font-weight: 600;
+      margin-bottom: 14px;
+      font-family: var(--font-body);
+    }
+    .toc-sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc-sidebar li {
+      margin: 0;
+    }
+    .toc-sidebar a {
+      display: block;
+      font-size: 15px;
+      color: var(--mute);
+      text-decoration: none;
+      border: none;
+      padding: 6px 10px 6px 8px;
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      line-height: 1.4;
+      transition: color .2s, border-color .2s, background .2s;
+      font-family: var(--font-body);
+    }
+    .toc-sidebar a:hover {
+      color: var(--ink);
+      background: var(--bg-soft);
+      border-bottom: none;
+    }
+    .toc-sidebar a.toc-active {
+      color: var(--accent-ink);
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 500;
+    }
+  }
+
+
+  /* === мобильная sticky-навигация (только < 1100px) === */
+  .mobile-toc {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-soft);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mobile-toc::-webkit-scrollbar { display: none; }
+  .mobile-toc ul {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    padding: 0 16px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .mobile-toc li { margin: 0; }
+  .mobile-toc a {
+    display: block;
+    font-size: 14px;
+    font-family: var(--font-body);
+    color: var(--mute);
+    text-decoration: none;
+    padding: 10px 12px;
+    transition: color .2s;
+    line-height: 1.3;
+    border-radius: 6px;
+  }
+  .mobile-toc a:hover { color: var(--ink); }
+  .mobile-toc a.toc-active {
+    color: var(--accent);
+    font-weight: 500;
+    background: rgba(149, 28, 197, 0.1);
+  }
+  @media (min-width: 1100px) {
+    .mobile-toc { display: none; }
+  }
+
+  /* === a11y === */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  /* === адаптив === */
+  @media (max-width: 480px) {
+    .guide-header { padding: 48px 0 36px; }
+    .guide-section { padding: 32px 0 0; }
+    .guide-closing { padding: 36px 0 56px; }
+    .content-block { padding: 16px 18px; }
+    .section-divider { margin: 36px 0 0; }
+    .guide-intro-block { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="mobile-toc" aria-label="Разделы">
+  <ul>
+    <li><a href="#section-before" class="toc-link">До просмотра</a></li>
+    <li><a href="#section-during" class="toc-link">Во время</a></li>
+    <li><a href="#section-after" class="toc-link">Сразу после</a></li>
+    <li><a href="#section-meeting" class="toc-link">На встрече</a></li>
+    <li><a href="#section-post-meeting" class="toc-link">После встречи</a></li>
+  </ul>
+</nav>
+
+<div class="layout">
+
+<main class="page">
+
+  <!-- Шапка -->
+  <header class="guide-header">
+    <p class="guide-label"><span class="guide-label-title">Путеводитель</span><br><span class="guide-label-sub">перед кино-встречей 14 мая</span></p>
+    <h1>«Весна, лето, осень, зима... и снова весна»</h1>
+    <p class="director">Ким Ки Дук</p>
+  </header>
+
+  <!-- Вступление -->
+  <section class="guide-intro" aria-label="Вступление" id="section-intro">
+    <div class="guide-intro-block">
+      <p>Я сделала этот путеводитель, потому что хочу, чтобы вы пришли на встречу со своим опытом, а не с пересказом сюжета и не с мнением о режиссёре. Мне важно, чтобы у каждого из нас был разговор с собой, до того как мы начнём говорить друг с другом. Этот фильм — материал. Он что-то в вас запускает: ощущения в теле, эмоции, воспоминания. Всё это про вас, а не про кино. Прочитайте, посмотрите, запишите. На встрече нам будет из чего разговаривать.</p>
+    </div>
+  </section>
+
+  <!-- До просмотра -->
+  <hr class="section-divider" />
+  <section class="guide-section" aria-labelledby="section-before">
+    <h2 id="section-before">До просмотра</h2>
+    <p>Один просмотр, без параллельных дел. Прерванный или фоновый не подойдёт: вы не успеете расслышать собственные реакции.</p>
+    <p>Перед тем как нажать «play», ответьте себе на три вопроса:</p>
+    <ul>
+      <li>Как я сейчас? (настроение, уровень энергии, что на фоне)</li>
+      <li>Что я знаю об этом фильме и какие у меня ожидания?</li>
+      <li>Есть ли что-то, чего я заранее опасаюсь или, наоборот, жду?</li>
+    </ul>
+    <p>Ответы запишите — это будет ваша точка отсчёта.</p>
+  </section>
+
+  <!-- Во время просмотра -->
+  <hr class="section-divider" />
+  <section class="guide-section" aria-labelledby="section-during">
+    <h2 id="section-during">Во время просмотра</h2>
+    <p>Главная задача — не анализировать, а замечать. Попробуйте удерживать внимание на трёх уровнях:</p>
+    <div class="watch-levels" role="list">
+      <div class="watch-level" role="listitem">
+        <p><strong>Тело.</strong> Время от времени возвращайте внимание к телу. Где напряжение, сжатие, тепло? Изменилось ли дыхание? Хочется ли отвернуться или перемотать? Тело реагирует раньше, чем сознание формулирует.</p>
+      </div>
+      <div class="watch-level" role="listitem">
+        <p><strong>Эмоции.</strong> Не «фильм грустный», а «мне грустно». Называйте их про себя своими словами. Особенно отмечайте моменты, когда эмоция кажется непропорциональной. Сцена бытовая, а вас вдруг накрыло.</p>
+      </div>
+      <div class="watch-level" role="listitem">
+        <p><strong>Импульсы и мысли-реакции.</strong> «Вот сейчас бы я ему сказала…», «я бы так никогда», «хочу так жить». Эти короткие внутренние реплики почти всегда про вас, а не про персонажа.</p>
+      </div>
+    </div>
+    <p style="margin-top: 20px;">Если захотелось поставить на паузу или выключить — отметьте этот момент. Он информативен.</p>
+  </section>
+
+  <!-- Сразу после просмотра -->
+  <hr class="section-divider" />
+  <section class="guide-section" aria-labelledby="section-after">
+    <h2 id="section-after">Сразу после просмотра</h2>
+    <p>Не вставайте сразу. Посидите 2–3 минуты в тишине. Не лезьте в телефон, не обсуждайте ни с кем — впечатление ещё «живое».</p>
+    <p>Потом запишите. Без записи на встрече будет нечего сказать, кроме общих слов.</p>
+
+    <div class="content-block">
+      <p class="block-title"><strong>Блок 1. Что осталось</strong></p>
+      <ul>
+        <li>Какая сцена, кадр, фраза или образ стоят перед глазами прямо сейчас?</li>
+        <li>Какое чувство преобладает? Где оно живёт в теле?</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <p class="block-title"><strong>Блок 2. Притяжения и отторжения</strong></p>
+      <ul>
+        <li>Кто из персонажей вызвал самую сильную реакцию — в любую сторону?</li>
+        <li>Кому втайне завидовали или кем восхищались?</li>
+        <li>Был ли персонаж, в котором вы узнали себя — или, наоборот, того, кем боитесь оказаться?</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <p class="block-title"><strong>Блок 3. Связь с собой</strong></p>
+      <ul>
+        <li>О чём этот фильм оказался для вас лично?</li>
+        <li>Какую вашу собственную ситуацию, отношения или период жизни он поднял?</li>
+        <li>С каким вопросом вы вышли из просмотра — тем, на который у вас пока нет ответа?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- На встрече -->
+  <hr class="section-divider" />
+  <section class="guide-section" aria-labelledby="section-meeting">
+    <h2 id="section-meeting">На встрече</h2>
+    <ul class="meeting-list" role="list">
+      <li class="meeting-item"><strong>Говорите от себя.</strong> «Меня зацепило…», «я почувствовала…», «во мне отозвалось…», а не «фильм показывает, что…». Кинокритика и разговор о собственном опыте — разные жанры. Нам нужен второй.</li>
+      <li class="meeting-item"><strong>Делитесь, а не убеждайте.</strong> Ваше прочтение не «правильное» и не «неправильное». Если чьё-то восприятие радикально отличается от вашего — это интересные данные, а не повод спорить.</li>
+      <li class="meeting-item"><strong>Не интерпретируйте других.</strong> Говорите про свои реакции — в том числе на то, что говорят другие. Не «Вам этот персонаж не нравится, потому что…», а «Когда вы это сказали, я почувствовала…».</li>
+      <li class="meeting-item"><strong>Замечайте, что происходит с вами в процессе.</strong> Кто-то рассказал — и вас накрыло раздражением, желанием перебить, согласием через силу? Это тоже материал. По возможности приносите его в разговор.</li>
+      <li class="meeting-item"><strong>Право промолчать.</strong> «Пропускаю» — полный и достаточный ответ.</li>
+    </ul>
+  </section>
+
+  <!-- После встречи -->
+  <hr class="section-divider" />
+  <section class="guide-section" aria-labelledby="section-post-meeting">
+    <h2 id="section-post-meeting">После встречи</h2>
+    <p>Вечером того же дня или на следующий день перечитайте свои записи и дополните: что добавилось после встречи? Что услышанное от других открыло в вашем собственном просмотре?</p>
+  </section>
+
+  <!-- Концовка -->
+  <footer class="guide-closing">
+    <p class="farewell">Приятного просмотра 😊🙏</p>
+  </footer>
+
+</main>
+
+  <!-- Боковое оглавление (видно только на широком экране) -->
+  <aside class="toc-sidebar" aria-label="Оглавление">
+    <nav>
+      <p class="toc-label">Разделы</p>
+      <ul>
+        <li><a href="#section-before" class="toc-link">До просмотра</a></li>
+        <li><a href="#section-during" class="toc-link">Во время просмотра</a></li>
+        <li><a href="#section-after" class="toc-link">Сразу после просмотра</a></li>
+        <li><a href="#section-meeting" class="toc-link">На встрече</a></li>
+        <li><a href="#section-post-meeting" class="toc-link">После встречи</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+</div><!-- /.layout -->
+
+<script>
+  // IntersectionObserver: подсветка активного раздела в sidebar
+  (function () {
+    var links = document.querySelectorAll('.toc-link');
+    if (!links.length) return;
+
+    var sectionIds = Array.from(links).map(function (a) {
+      return a.getAttribute('href').slice(1);
+    });
+
+    var sections = sectionIds.map(function (id) {
+      return document.getElementById(id);
+    }).filter(Boolean);
+
+    if (!sections.length) return;
+
+    function setActive(id) {
+      links.forEach(function (a) {
+        var isActive = a.getAttribute('href') === '#' + id;
+        a.classList.toggle('toc-active', isActive);
+      });
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-10% 0px -70% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(function (s) { observer.observe(s); });
+  })();
+</script>
+
+</body>
+</html>
