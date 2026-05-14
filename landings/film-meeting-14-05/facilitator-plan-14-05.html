@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Шпаргалка ведущей — кино-встреча 14 мая</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f6f4;
+    --bg-panel: #fafaf9;
+    --ink: #181f20;
+    --ink-soft: #3d4445;
+    --mute: #605f5f;
+    --line: #e8e6e1;
+    --line-soft: #f0eeea;
+    --accent: #951cc5;
+    --accent-soft: #f1e2f9;
+    --accent-ink: #6b0e94;
+    --rose: #eb6dbe;
+    --shadow: 0 1px 3px rgba(24,31,32,0.05), 0 8px 24px rgba(24,31,32,0.07);
+    --radius: 10px;
+    --font-heading: 'Manrope', 'Inter', -apple-system, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-soft);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── PRIVATE NOTICE ── */
+  .private-notice {
+    background: var(--ink);
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+  }
+
+  /* ── HEADER ── */
+  header.page-header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .header-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .header-kicker {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    font-family: var(--font-body);
+  }
+  header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 2.2vw, 22px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .header-film {
+    font-size: 14px;
+    color: var(--mute);
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: background .15s, border-color .15s, color .15s;
+    line-height: 1;
+  }
+  .nav-btn:hover { background: var(--bg-soft); border-color: var(--accent); color: var(--accent); }
+  .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .nav-btn.arrow { font-size: 16px; padding: 6px 12px; }
+  .card-counter {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mute);
+    min-width: 44px;
+    text-align: center;
+  }
+
+  /* ── CARD STAGE ── */
+  .card-stage {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 28px 20px 36px;
+  }
+
+  .card {
+    display: none;
+    background: var(--bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    max-width: 780px;
+    width: 100%;
+    padding: 36px 40px 40px;
+    animation: fadeIn .2s ease;
+  }
+  .card.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── CARD ELEMENTS ── */
+  .card-timing {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+    font-family: var(--font-body);
+  }
+  .card-timing::before {
+    content: '⏱';
+    font-size: 11px;
+  }
+
+  .card-number {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-family: var(--font-body);
+  }
+
+  .card h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .card-intent {
+    font-size: 14px;
+    color: var(--mute);
+    font-style: italic;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line-soft);
+    line-height: 1.55;
+  }
+
+  .card-section {
+    margin-bottom: 24px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+  }
+
+  /* facilitator note block */
+  .facilitator-note {
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 18px 20px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .facilitator-note p { margin-bottom: 10px; }
+  .facilitator-note p:last-child { margin-bottom: 0; }
+
+  /* slot note */
+  .slot-note {
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--mute);
+    font-style: italic;
+  }
+
+  /* question block */
+  .question-block {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .question-block.secondary {
+    border-left-color: var(--rose);
+    background: rgba(235,109,190,0.07);
+  }
+  .question-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+    font-style: normal;
+    font-family: var(--font-body);
+  }
+  .question-block.secondary .question-label { color: var(--rose); }
+
+  /* quotes */
+  .quote-block {
+    border-left: 3px solid var(--line);
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .quote-block:last-child { margin-bottom: 0; }
+
+  /* images list */
+  .images-list {
+    list-style: none;
+    padding: 0;
+  }
+  .images-list li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line-soft);
+    line-height: 1.5;
+  }
+  .images-list li:last-child { border-bottom: none; }
+  .images-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* rules list */
+  .rules-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .rules-list li {
+    padding: 10px 14px 10px 36px;
+    position: relative;
+    font-size: 15px;
+    color: var(--ink-soft);
+    background: var(--bg-soft);
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+  .rules-list li::before {
+    content: '–';
+    position: absolute;
+    left: 14px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* correction hints */
+  .hint-block {
+    background: rgba(235,109,190,0.08);
+    border: 1px solid rgba(235,109,190,0.25);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .hint-block strong { color: var(--ink); font-weight: 600; }
+
+  /* timing summary table */
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .timing-table th, .timing-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+  .timing-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    font-weight: 700;
+    background: var(--bg-soft);
+  }
+  .timing-table tr:last-child td {
+    border-bottom: none;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .timing-table td:first-child { color: var(--mute); font-weight: 600; }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: sticky;
+    bottom: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .dot-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: none;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mute);
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dot-btn:hover { background: var(--bg-soft); color: var(--ink); border-color: var(--accent); }
+  .dot-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+  .dot-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .card { padding: 24px 20px 28px; }
+    header.page-header { padding: 16px; }
+    .card-stage { padding: 16px 12px 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Private notice -->
+<div class="private-notice" role="note">
+  Шпаргалка ведущей. Участникам не передаётся.
+</div>
+
+<!-- Header -->
+<header class="page-header">
+  <div class="header-meta">
+    <span class="header-kicker">Кино-встреча · 14 мая 2026</span>
+    <h1>«Весна, лето, осень, зима… и снова весна»</h1>
+    <p class="header-film">Ким Ки Дук, 2003 · Шпаргалка ведущей</p>
+  </div>
+  <nav class="header-nav" aria-label="Навигация по карточкам">
+    <button class="nav-btn arrow" id="prevBtn" aria-label="Предыдущая карточка">&#8592;</button>
+    <span class="card-counter" id="cardCounter">1 / 8</span>
+    <button class="nav-btn arrow" id="nextBtn" aria-label="Следующая карточка">&#8594;</button>
+  </nav>
+</header>
+
+<!-- Card stage -->
+<main class="card-stage" id="cardStage">
+
+  <!-- Card 0: Rules (pinned intro) -->
+  <article class="card active" data-card="0" aria-label="Нюансы формата">
+    <div class="card-timing">Перед началом</div>
+    <div class="card-number">Вводная карточка</div>
+    <h2>Нюансы формата</h2>
+    <p class="card-intent">Держи в голове на протяжении всей встречи.</p>
+
+    <div class="card-section">
+      <div class="section-label">Правила разговора — напомнить участницам в начале</div>
+      <ul class="rules-list">
+        <li>Говорим от себя: «Меня зацепило…», «я почувствовала…» – не «фильм показывает…»</li>
+        <li>Делимся, не убеждаем – нет правильного прочтения</li>
+        <li>Не интерпретируем других – говорим про свои реакции на их слова</li>
+        <li>«Пропускаю» – полный и достаточный ответ</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Как мягко возвращать в формат</div>
+      <div class="hint-block">
+        <p><strong>Участница уходит в анализ фильма</strong> → «А что ты при этом чувствовала?»</p>
+        <p><strong>Участница интерпретирует другую</strong> → «Как это откликнулось в тебе?»</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 1: Block 0 — Opening -->
+  <article class="card" data-card="1" aria-label="Блок 0. Открытие">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 0</div>
+    <h2>Открытие</h2>
+    <p class="card-intent">Дыхание, знакомство, вопрос на вход.</p>
+
+    <div class="card-section">
+      <div class="section-label">Текст настройки с дыханием</div>
+      <div class="facilitator-note">
+        <p>«Прежде чем начать – давайте побудем несколько минут в тишине вместе.</p>
+        <p>Устройтесь удобно. Почувствуйте, как вы сидите – вес тела, опору под собой. Если хочется – прикройте глаза.</p>
+        <p>Сделайте медленный вдох через нос – и медленный выдох. Почувствуйте, как тело чуть оседает на выдохе. Ещё раз – вдох, и выдох.</p>
+        <p>Не нужно ничего делать с дыханием – просто следуйте за ним. Если мысли уводят – это нормально. Просто возвращайтесь к следующему выдоху.»</p>
+      </div>
+      <p style="font-size:14px;color:var(--mute);margin-top:10px;font-style:italic;">(пауза 1–2 минуты)</p>
+      <div class="facilitator-note" style="margin-top:8px;">
+        <p>«Медленно откройте глаза. Мы здесь. Встреча начинается.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«В этом фильме есть ворота без забора. Все входят именно в них – хотя можно было обойти. Сегодня мы тоже входим в такие ворота, доверяясь процессу и той форме, в которой будет происходить встреча»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Знакомство</div>
+      <div class="slot-note">По ситуации – имя (если группа незнакома).</div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопрос на вход — по очереди, без обсуждения</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос</div>
+        «С каким чувством ты вышла из просмотра – и с каким ты здесь сейчас?»
+      </div>
+    </div>
+  </article>
+
+  <!-- Card 2: Block 1 — Spring -->
+  <article class="card" data-card="2" aria-label="Блок 1. Весна">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 1</div>
+    <h2>Весна – детство, невинность, первая жестокость</h2>
+    <p class="card-intent">Намерение: участницы прикасаются к тому, что страдание существует. Первая благородная истина – дуккха – называется в конце как итог, не в начале.</p>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«Часть "Весна" – про детство. Про первое столкновение с жестокостью – своей и мира.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопрос</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос</div>
+        «Какой момент из этой части остался с вами? Что запомнилось?»
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорные образы</div>
+      <ul class="images-list">
+        <li>Мальчик привязывает камень к рыбке, жабе, змее</li>
+        <li>Мальчик ищет животных и находит мёртвую змею</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Переход к блоку 2</div>
+      <div class="slot-note">Слот – Юля формулирует сама – называет дуккху своими словами.</div>
+    </div>
+  </article>
+
+  <!-- Card 3: Block 2 — Summer -->
+  <article class="card" data-card="3" aria-label="Блок 2. Лето">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 2</div>
+    <h2>Лето – страсть, желание, привязанность</h2>
+    <p class="card-intent">Намерение: узнавание. Каждая сталкивалась с этим. Без осуждения.</p>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«Часть "Лето" – про страсть и одержимость. Про то, как желание обладать захватывает человека.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопросы</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос 1</div>
+        «Была ли в этой части эмоция, которую вы узнали – из своего опыта, из своей жизни?»
+      </div>
+      <div class="question-block secondary">
+        <div class="question-label">Вопрос 2 – для углубления, когда разговор пошёл</div>
+        «Учитель говорит: "Похоть ведёт к одержимости, а она – к желанию убивать". Что в вас отзывается на эти слова?»
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорные цитаты</div>
+      <div class="quote-block">«Душа любого цветка дикой сливы вянет до срока»</div>
+      <div class="quote-block">«Такова природа»</div>
+      <div class="quote-block">«Похоть ведёт к одержимости, а она – к желанию убивать»</div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Переход к блоку 3</div>
+      <div class="slot-note">Слот – Юля формулирует сама.</div>
+    </div>
+  </article>
+
+  <!-- Card 4: Block 3 — Autumn -->
+  <article class="card" data-card="4" aria-label="Блок 3. Осень">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 3</div>
+    <h2>Осень – расплата, возвращение</h2>
+    <p class="card-intent">Намерение: раскаяние и сострадание – рядом.</p>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«Часть "Осень" – про расплату. Но и про то, как рядом с виной появляется сострадание – иногда оттуда, откуда не ждёшь.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопрос</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос</div>
+        «Что вы почувствовали к герою в этой части?»
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорные образы</div>
+      <ul class="images-list">
+        <li>Герой выскребает строки сутры до изнеможения – «Изгоняя гнев из своего сердца»</li>
+        <li>Полицейский прикрывает его курткой</li>
+        <li>Прощание с учителем – последняя встреча</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорная цитата</div>
+      <div class="quote-block">«Что нравится нам, может понравиться и другим»</div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Переход к блоку 4</div>
+      <div class="slot-note">Слот – Юля формулирует сама.</div>
+    </div>
+  </article>
+
+  <!-- Card 5: Block 4 — Winter -->
+  <article class="card" data-card="5" aria-label="Блок 4. Зима">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 4</div>
+    <h2>Зима – искупление, аскеза, одиночество</h2>
+    <p class="card-intent">Намерение: через страдание – к устойчивости. И что этот путь реален.</p>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«Часть "Зима" – про путь после расплаты. Герой прошёл через страдание и вернулся к практике.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопросы</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос 1 – про женщину</div>
+        «Женщина пришла с ребёнком и ушла, не показав лица. Что вы о ней думаете?»
+      </div>
+      <div class="question-block secondary">
+        <div class="question-label">Вопрос 2 – про героя</div>
+        «Герой вернулся к монастырю и начал практиковать – один, в тишине. Что вы почувствовали, наблюдая за ним?»
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорные образы</div>
+      <ul class="images-list">
+        <li>Женщина с завязанным лицом – оставляет ребёнка</li>
+        <li>Герой с боевыми искусствами и йогой – один в монастыре</li>
+        <li>Ребёнок ползёт навстречу матери, упавшей в прорубь</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Переход к блоку 5</div>
+      <div class="slot-note">Слот – Юля формулирует сама.</div>
+    </div>
+  </article>
+
+  <!-- Card 6: Block 5 — Spring again -->
+  <article class="card" data-card="6" aria-label="Блок 5. И снова весна">
+    <div class="card-timing">15–20 мин</div>
+    <div class="card-number">Блок 5</div>
+    <h2>И снова весна – цикл, передача, ребёнок</h2>
+
+    <div class="card-section">
+      <div class="section-label">Вводная реплика</div>
+      <div class="facilitator-note">
+        <p>«Финальная часть возвращает нас в начало. Снова весна, снова мальчик, снова те же движения.»</p>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Вопросы</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос 1</div>
+        «Это колесо – или спираль? Что вы видите?»
+      </div>
+      <div class="question-block secondary">
+        <div class="question-label">Вопрос 2</div>
+        «Может ли ребёнок прервать цикл без личного столкновения со страданием?»
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Опорный образ</div>
+      <ul class="images-list">
+        <li>Мальчик повторяет те же действия, что и герой в начале фильма</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Переход к блоку 6</div>
+      <div class="slot-note">Слот – Юля формулирует сама.</div>
+    </div>
+  </article>
+
+  <!-- Card 7: Block 6 — Closing -->
+  <article class="card" data-card="7" aria-label="Блок 6. Закрытие">
+    <div class="card-timing">10 мин</div>
+    <div class="card-number">Блок 6</div>
+    <h2>Закрытие – интеграция</h2>
+
+    <div class="card-section">
+      <div class="section-label">Вопросы</div>
+      <div class="question-block">
+        <div class="question-label">Вопрос 1</div>
+        «Что вы уносите с собой – что было самым ценным?»
+      </div>
+      <div class="question-block secondary">
+        <div class="question-label">Вопрос 2</div>
+        «И с каким вопросом вы уходите?»
+      </div>
+      <div class="slot-note" style="margin-top:12px;">По ситуации – один или оба.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="section-label">Тайминг – сводка</div>
+      <div class="table-wrap" style="margin:0;border-radius:8px;">
+        <table class="timing-table">
+          <thead>
+            <tr>
+              <th>Блок</th>
+              <th>Содержание</th>
+              <th>Время</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>Открытие – дыхание, знакомство, вопрос на вход</td><td>15–20 мин</td></tr>
+            <tr><td>1</td><td>Весна</td><td>15–20 мин</td></tr>
+            <tr><td>2</td><td>Лето</td><td>15–20 мин</td></tr>
+            <tr><td>3</td><td>Осень</td><td>15–20 мин</td></tr>
+            <tr><td>4</td><td>Зима</td><td>15–20 мин</td></tr>
+            <tr><td>5</td><td>И снова весна</td><td>15–20 мин</td></tr>
+            <tr><td>6</td><td>Закрытие</td><td>10 мин</td></tr>
+            <tr><td></td><td><strong>Итого</strong></td><td><strong>~2 ч</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<!-- Bottom navigation -->
+<nav class="bottom-nav" aria-label="Быстрый переход к карточке">
+  <button class="dot-btn active" data-target="0" aria-label="Вводная">вв</button>
+  <button class="dot-btn" data-target="1" aria-label="Блок 0 — Открытие">0</button>
+  <button class="dot-btn" data-target="2" aria-label="Блок 1 — Весна">1</button>
+  <button class="dot-btn" data-target="3" aria-label="Блок 2 — Лето">2</button>
+  <button class="dot-btn" data-target="4" aria-label="Блок 3 — Осень">3</button>
+  <button class="dot-btn" data-target="5" aria-label="Блок 4 — Зима">4</button>
+  <button class="dot-btn" data-target="6" aria-label="Блок 5 — И снова весна">5</button>
+  <button class="dot-btn" data-target="7" aria-label="Блок 6 — Закрытие">6</button>
+</nav>
+
+<script>
+  (function () {
+    const cards = Array.from(document.querySelectorAll('[data-card]'));
+    const dotBtns = Array.from(document.querySelectorAll('.dot-btn'));
+    const counter = document.getElementById('cardCounter');
+    const total = cards.length;
+    let current = 0;
+
+    function goTo(index) {
+      if (index < 0 || index >= total) return;
+      cards[current].classList.remove('active');
+      dotBtns[current].classList.remove('active');
+      current = index;
+      cards[current].classList.add('active');
+      dotBtns[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + total;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+    dotBtns.forEach((btn, i) => {
+      btn.addEventListener('click', () => goTo(i));
+    });
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(current + 1); }
+      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); goTo(current - 1); }
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0) goTo(current + 1);
+        else        goTo(current - 1);
+      }
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>
