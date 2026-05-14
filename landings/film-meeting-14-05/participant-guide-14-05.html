@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Кино-встреча 14 мая · Весна, лето, осень, зима... и снова весна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #181f20;
+    --ink-soft: #3d4445;
+    --mute: #605f5f;
+    --accent: #951cc5;
+    --rose: #eb6dbe;
+    --font-heading: 'Nunito', 'Inter', -apple-system, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+    /* Слайд-цвета */
+    --slide-overlay: rgba(12, 10, 14, 0.62);
+    --slide-overlay-heavy: rgba(10, 8, 12, 0.75);
+    --text-primary: #f2ede8;
+    --text-soft: rgba(242, 237, 232, 0.78);
+    --text-mute: rgba(242, 237, 232, 0.52);
+    --accent-light: #d88ef5;
+    --rose-light: #f2a0d2;
+    --gold: #d4b483;
+    --gold-soft: rgba(212, 180, 131, 0.72);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #0a080c;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============ ПРЕЗЕНТАЦИОННЫЙ КОНТЕЙНЕР ============ */
+  .deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* ============ СЛАЙД ============ */
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+    overflow: hidden;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ============ ФОН ============ */
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 8s ease-out;
+  }
+
+  .slide.active .slide-bg {
+    transform: scale(1.04);
+  }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--slide-overlay);
+  }
+
+  /* ============ КОНТЕНТ ============ */
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    width: 100%;
+    padding: 60px 48px;
+  }
+
+  /* ============ СЛАЙД 0 — АФИША ============ */
+  .slide-0 .slide-bg {
+    background-image: url('main.png');
+    background-position: center 40%;
+  }
+
+  .slide-0 .slide-overlay {
+    background: linear-gradient(
+      160deg,
+      rgba(8, 6, 12, 0.80) 0%,
+      rgba(12, 10, 18, 0.68) 50%,
+      rgba(8, 6, 12, 0.82) 100%
+    );
+  }
+
+  .poster-eyebrow {
+    font-family: var(--font-body);
+    font-size: clamp(11px, 1.2vw, 14px);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 28px;
+    display: block;
+  }
+
+  .poster-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5.2vw, 68px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0 0 24px;
+  }
+
+  .poster-film {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 2.2vw, 28px);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: var(--text-soft);
+    margin: 0 0 20px;
+    font-style: italic;
+  }
+
+  .poster-meta {
+    font-size: clamp(12px, 1.3vw, 15px);
+    letter-spacing: 0.12em;
+    color: var(--text-mute);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .poster-portrait {
+    position: absolute;
+    bottom: 0;
+    right: clamp(32px, 5vw, 80px);
+    width: clamp(120px, 18vw, 220px);
+    height: clamp(180px, 27vw, 330px);
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.72;
+    mask-image: linear-gradient(to top, transparent 0%, black 30%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%);
+    border-radius: 4px 4px 0 0;
+  }
+
+  /* ============ СЕЗОННЫЙ ЯРЛЫК ============ */
+  .season-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 clamp(20px, 3vw, 36px);
+    padding: 8px 20px;
+    border: 1px solid rgba(212, 180, 131, 0.35);
+    border-radius: 2px;
+  }
+
+  /* ============ ЗАГОЛОВОК СЕЗОНА ============ */
+  .season-title {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 6vw, 80px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin: 0 0 clamp(24px, 3.5vw, 44px);
+  }
+
+  /* ============ ОСНОВНОЙ ТЕКСТ ============ */
+  .season-body {
+    font-family: var(--font-heading);
+    font-size: clamp(14px, 2vw, 26px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ ЦИТАТНЫЙ БЛОК ============ */
+  .quote-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0 0 clamp(20px, 3vw, 36px);
+  }
+
+  .quote-item {
+    font-family: var(--font-heading);
+    font-size: clamp(14px, 2vw, 26px);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--text-primary);
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  .quote-attr {
+    font-family: var(--font-body);
+    font-size: clamp(12px, 1.3vw, 16px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin: 0;
+  }
+
+  /* ============ ОПИСАНИЕ + ЦИТАТА (ОСЕНЬ) ============ */
+  .autumn-body {
+    font-family: var(--font-heading);
+    font-size: clamp(15px, 2vw, 24px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin: 0 0 clamp(20px, 3vw, 36px);
+    letter-spacing: -0.005em;
+  }
+
+  .autumn-quote {
+    font-family: var(--font-heading);
+    font-size: clamp(14px, 2vw, 26px);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-primary);
+    font-style: italic;
+    letter-spacing: -0.015em;
+    padding: 0 0 0 24px;
+    border-left: 2px solid var(--gold-soft);
+    margin: 0 0 16px;
+    text-align: left;
+  }
+
+  /* ============ ФИНАЛЬНЫЙ СЛАЙД ============ */
+  .final-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .final-line {
+    font-family: var(--font-heading);
+    font-size: clamp(14px, 2vw, 26px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  /* ============ ФОНЫ СЕЗОНОВ ============ */
+  .slide-1 .slide-bg {
+    background-image: url('055.png');
+    background-position: center 45%;
+  }
+  .slide-1 .slide-overlay {
+    background: linear-gradient(180deg, rgba(8,6,12,0.72) 0%, rgba(10,8,14,0.55) 50%, rgba(8,6,12,0.78) 100%);
+  }
+
+  .slide-2 .slide-bg {
+    background-image: url('another_2.png');
+    background-position: center 50%;
+  }
+  .slide-2 .slide-overlay {
+    background: rgba(10, 12, 8, 0.78);
+  }
+
+  .slide-3 .slide-bg {
+    background-image: url('another_3.png');
+    background-position: center 40%;
+  }
+  .slide-3 .slide-overlay {
+    background: linear-gradient(180deg, rgba(10,8,6,0.75) 0%, rgba(12,10,8,0.62) 50%, rgba(10,8,6,0.80) 100%);
+  }
+
+  .slide-4 .slide-bg {
+    background-image: url('8888.jpeg');
+    background-position: center 30%;
+  }
+  .slide-4 .slide-overlay {
+    background: linear-gradient(180deg, rgba(6,8,14,0.68) 0%, rgba(8,10,16,0.55) 40%, rgba(6,8,14,0.80) 100%);
+  }
+
+  .slide-5 .slide-bg {
+    background-image: url('066.png');
+    background-position: center 40%;
+  }
+  .slide-5 .slide-overlay {
+    background: linear-gradient(
+      160deg,
+      rgba(8, 6, 12, 0.78) 0%,
+      rgba(12, 10, 18, 0.65) 50%,
+      rgba(8, 6, 12, 0.80) 100%
+    );
+  }
+
+  /* ============ НАВИГАЦИЯ ============ */
+  .nav-controls {
+    position: fixed;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(242, 237, 232, 0.25);
+    background: rgba(12, 10, 16, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-primary);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .nav-btn:hover {
+    background: rgba(149, 28, 197, 0.35);
+    border-color: rgba(212, 142, 245, 0.5);
+  }
+
+  .nav-btn:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 3px;
+  }
+
+  .nav-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(242, 237, 232, 0.28);
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    border: none;
+    padding: 0;
+  }
+
+  .nav-dot.active {
+    background: var(--gold);
+    transform: scale(1.4);
+  }
+
+  /* ============ СЧЁТЧИК ============ */
+  .slide-counter {
+    position: fixed;
+    top: 28px;
+    right: 36px;
+    z-index: 100;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: rgba(242, 237, 232, 0.38);
+  }
+
+  /* ============ HINT КЛАВИШ ============ */
+  .key-hint {
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 100;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(242, 237, 232, 0.22);
+    font-family: var(--font-body);
+  }
+
+  /* ============ РАЗДЕЛИТЕЛЬ ============ */
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-soft);
+    margin: 0 auto clamp(20px, 3vw, 36px);
+    opacity: 0.6;
+  }
+
+  /* ============ REDUCED MOTION ============ */
+  @media (prefers-reduced-motion: reduce) {
+    .slide { transition: opacity 0.2s; }
+    .slide-bg { transition: none; }
+    .slide.active .slide-bg { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" role="main" aria-label="Презентация кино-встречи">
+
+  <!-- СЧЁТЧИК -->
+  <div class="slide-counter" aria-live="polite" aria-label="Слайд">
+    <span id="current-num">1</span> / <span id="total-num">6</span>
+  </div>
+
+  <!-- ============ СЛАЙД 0: АФИША ============ -->
+  <section class="slide slide-0 active" role="region" aria-label="Афиша" data-index="0">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content">
+      <span class="poster-eyebrow">Кино-встреча · 14 мая</span>
+      <h1 class="poster-title"><span style="display:block;white-space:nowrap">«Весна, лето, осень, зима...</span><span style="display:block">и снова весна»</span></h1>
+      <p class="poster-film">Ким Ки Дук, 2003</p>
+    </div>
+
+  </section>
+
+  <!-- ============ СЛАЙД 1: ВЕСНА ============ -->
+  <section class="slide slide-1" role="region" aria-label="Весна" data-index="1">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content">
+      <span class="season-label">Эпизод 1</span>
+      <h2 class="season-title">Весна</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="season-body">
+        Мальчик находит рыбку, жабу, змею – и привязывает<br>
+        к каждой камень. Потом идёт их искать –<br>
+        и находит мёртвую рыбку и змею.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ СЛАЙД 2: ЛЕТО ============ -->
+  <section class="slide slide-2" role="region" aria-label="Лето" data-index="2">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content">
+      <span class="season-label">Эпизод 2</span>
+      <h2 class="season-title">Лето</h2>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="quote-block">
+        <p class="quote-item">«Душа любого цветка дикой сливы вянет до срока»</p>
+        <p class="quote-item">«Такова природа»</p>
+        <p class="quote-item">«Похоть ведёт к одержимости, а она – к желанию убивать»</p>
+      </div>
+
+      <p class="quote-attr">– учитель</p>
+    </div>
+  </section>
+
+  <!-- ============ СЛАЙД 3: ОСЕНЬ ============ -->
+  <section class="slide slide-3" role="region" aria-label="Осень" data-index="3">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content" style="text-align: left; max-width: 780px;">
+      <span class="season-label" style="display: inline-block; margin-bottom: clamp(20px, 3vw, 36px);">Эпизод 3</span>
+      <h2 class="season-title" style="text-align: left;">Осень</h2>
+      <div class="divider" style="margin: 0 0 clamp(20px, 3vw, 36px);" aria-hidden="true"></div>
+
+      <p class="autumn-body">
+        Герой возвращается после убийства. Учитель говорит ему
+        выскребать строки сутры ножом. Приезжают полицейские.
+        Учитель совершает акт самосожжения.
+      </p>
+
+      <blockquote class="autumn-quote">
+        «Что нравится нам, может понравиться и другим»
+      </blockquote>
+
+      <p class="quote-attr">– учитель</p>
+    </div>
+  </section>
+
+  <!-- ============ СЛАЙД 4: ЗИМА ============ -->
+  <section class="slide slide-4" role="region" aria-label="Зима" data-index="4">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content">
+      <span class="season-label">Эпизод 4</span>
+      <h2 class="season-title">Зима</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="season-body">
+        Герой возвращается и практикует один.<br>
+        Женщина с закрытым лицом оставляет ребёнка –<br>
+        и умирает в проруби.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ СЛАЙД 5: И СНОВА ВЕСНА ============ -->
+  <section class="slide slide-5" role="region" aria-label="И снова весна" data-index="5">
+    <div class="slide-bg" aria-hidden="true"></div>
+    <div class="slide-overlay" aria-hidden="true"></div>
+
+    <div class="slide-content">
+      <span class="season-label">Эпизод 5</span>
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="final-lines">
+        <p class="final-line">Снова весна.</p>
+        <p class="final-line">Снова мальчик.</p>
+        <p class="final-line">Снова камень.</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /deck -->
+
+<!-- НАВИГАЦИЯ -->
+<nav class="nav-controls" aria-label="Навигация по слайдам">
+  <button class="nav-btn" id="btn-prev" aria-label="Предыдущий слайд">&#8592;</button>
+
+  <div class="nav-dots" role="tablist" aria-label="Слайды">
+    <button class="nav-dot active" role="tab" aria-selected="true"  aria-label="Слайд 1" data-target="0"></button>
+    <button class="nav-dot"        role="tab" aria-selected="false" aria-label="Слайд 2" data-target="1"></button>
+    <button class="nav-dot"        role="tab" aria-selected="false" aria-label="Слайд 3" data-target="2"></button>
+    <button class="nav-dot"        role="tab" aria-selected="false" aria-label="Слайд 4" data-target="3"></button>
+    <button class="nav-dot"        role="tab" aria-selected="false" aria-label="Слайд 5" data-target="4"></button>
+    <button class="nav-dot"        role="tab" aria-selected="false" aria-label="Слайд 6" data-target="5"></button>
+  </div>
+
+  <button class="nav-btn" id="btn-next" aria-label="Следующий слайд">&#8594;</button>
+</nav>
+
+<div class="key-hint" aria-hidden="true">← → Space</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.nav-dot');
+  const total  = slides.length;
+  let current  = 0;
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected', 'false');
+
+    current = index;
+
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    dots[current].setAttribute('aria-selected', 'true');
+
+    document.getElementById('current-num').textContent = current + 1;
+  }
+
+  document.getElementById('total-num').textContent = total;
+
+  document.getElementById('btn-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('btn-next').addEventListener('click', () => goTo(current + 1));
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.target)));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft')                   { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'ArrowDown')                   { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowUp')                     { e.preventDefault(); goTo(current - 1); }
+  });
+</script>
+</body>
+</html>
